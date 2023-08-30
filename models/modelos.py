@@ -1,4 +1,6 @@
-from sqlalchemy import  String, Integer
+from sqlalchemy import  String, Integer, DateTime
+import datetime
+from sqlalchemy.sql import func
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
@@ -25,4 +27,15 @@ class TableUser(DataBaseModel):
     
 
 
+class tb_usuario(DataBaseModel):
+    __tablename__ = "tb_usuario"
+    schema = 'public'
+
+    login: Mapped[str] = mapped_column(  primary_key=True)
+    nombre: Mapped[str]= mapped_column(String(30))
+    password: Mapped[str]= mapped_column(String(8))
+    fecha_cambio: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    fecha_vencimiento:  Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    activo : Mapped[bool]
+    
     

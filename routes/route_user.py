@@ -4,7 +4,7 @@ from sqlalchemy import select
 
 from config.db import AsyncSession, get_db
 from models.modelos import TableUser
-from schemas.usuario_bm import Usuario_BM
+from schemas.schemas import Usuario_BM
 
 route_user = APIRouter()
 

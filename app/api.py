@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # from routes.notas_app.notas import notas
 # from routes.notas_app.calendario import calendario
 from routes.route_user import route_user
+from routes.route_presupuesto import route_presupuesto
 
 
 
@@ -34,6 +35,7 @@ async def read_root():
     
 
 app.include_router(route_user)
+app.include_router(route_presupuesto)
 # app.include_router(registros)
 # app.include_router(actos)
 # app.include_router(estudiante)
