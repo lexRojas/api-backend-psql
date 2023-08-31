@@ -1,14 +1,9 @@
-from fastapi import FastAPI,Depends
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-
-
-# from routes.notario.actos import actos
-# from routes.notario.registros import registros
-# from routes.notas_app.estudiante import estudiante
-# from routes.notas_app.notas import notas
-# from routes.notas_app.calendario import calendario
+#---IMPORTACION DE RUTAS 
 from routes.route_user import route_user
+from routes.route_usuarios import route_usuarios
 from routes.route_presupuesto import route_presupuesto
 
 
@@ -28,17 +23,11 @@ app.add_middleware(
 )
 
 
-
 @app.get("/")
 async def read_root():
-    return 'hola a todos '
+    return 'hola a todos'
     
 
 app.include_router(route_user)
+app.include_router(route_usuarios)
 app.include_router(route_presupuesto)
-# app.include_router(registros)
-# app.include_router(actos)
-# app.include_router(estudiante)
-# app.include_router(notas)
-# app.include_router(calendario)
-
